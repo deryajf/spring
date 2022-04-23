@@ -31,7 +31,7 @@ public class StudentController {
 		return ResponseEntity.ok(students);
 
 	}
-//ID YE GÖRE ÖĞRENCİ GETİRME= verdiğimiz id numarası hangisiyse o id ile kayıtlı olan kişiyi getirdi
+//ID YE GÖRE ÖĞRENCİ GETİRME= input olarak verdiğimiz id numarası hangisiyse o id ile kayıtlı olan kişiyi getirdi
 	@RequestMapping(path = "/student/{id}", method = RequestMethod.GET)
 	public Student getStudentId(@PathVariable Integer id) {
 
@@ -39,7 +39,7 @@ public class StudentController {
 
 		return student;
 	}
-// ÖĞRENCİ SİL = Verdiğimiz id numarasında kayıtlı olan kişiyi listeden sildi
+// ÖĞRENCİ SİL = input olarak verdiğimiz id numarasında kayıtlı olan kişiyi listeden sildi
 	@RequestMapping(path = "/student/{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable Integer id) {
 		studentDao.delete(id);
@@ -53,7 +53,7 @@ public class StudentController {
 		return "Öğrenci eklenmiştir...";
 	}
 	
-	//Güncelle=  Burada id yi verdik. Verdiğimiz id numarasına sahip kişinin adını ve soyadını bizim girdiğimiz yeni isim ve soyisimle güncelledi
+	//Güncelle=  Burada id yi verdik. Input olarak verdiğimiz id numarasına sahip kişinin adını ve soyadını bizim girdiğimiz yeni isim ve soyisimle güncelledi
 	@RequestMapping(path = "/student/update",method = RequestMethod.PUT)
 	public String update(@RequestBody Student student) {
 		studentDao.update(student);
